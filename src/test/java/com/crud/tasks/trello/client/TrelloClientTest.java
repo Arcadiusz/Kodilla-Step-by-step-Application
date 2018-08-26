@@ -36,6 +36,7 @@ public class TrelloClientTest {
         Mockito.when(trelloConfig.getTrelloApiEndpoint()).thenReturn("http://test.com");
         Mockito.when(trelloConfig.getTrelloAppKey()).thenReturn("test");
         Mockito.when(trelloConfig.getTrelloToken()).thenReturn("test");
+        Mockito.when(trelloConfig.getUsername()).thenReturn("arcadiusz");
     }
 
     @Test
@@ -54,7 +55,7 @@ public class TrelloClientTest {
         //Then
         Assert.assertEquals(1,fetchedTrelloBoards.size());
         Assert.assertEquals("test_id", fetchedTrelloBoards.get(0).getId());
-        Assert.assertEquals("test_board", fetchedTrelloBoards.get(0).getName());
+        Assert.assertEquals("test_name", fetchedTrelloBoards.get(0).getName());
         Assert.assertEquals(new ArrayList<>(), fetchedTrelloBoards.get(0).getLists());
     }
 
@@ -85,7 +86,7 @@ public class TrelloClientTest {
         TrelloBoardDto[] trelloBoards = new TrelloBoardDto[1];
         trelloBoards[0] = new TrelloBoardDto("test_name", "test_id", new ArrayList<>());
 
-        URI uri = new URI("http://test.com/members/mariuszgebel/boards?key=test&token=test&fields=name,id&lists=all");
+        URI uri = new URI("http://test.com/members/arcadiusz/boards?key=test&token=test&fields=name,id&lists=all");
 
         Mockito.when(restTemplate.getForObject(uri, TrelloBoardDto[].class)).thenReturn(null);
 
