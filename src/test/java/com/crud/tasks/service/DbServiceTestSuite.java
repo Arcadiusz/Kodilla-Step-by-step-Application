@@ -14,8 +14,7 @@ import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
-import static org.mockito.Mockito.stubVoid;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DbServiceTestSuite {
@@ -60,5 +59,15 @@ public class DbServiceTestSuite {
         Task savedTask = dbService.saveTask(task);
         //Then
         assertEquals("dd", savedTask.getTitle());
+    }
+
+    @Test
+    public void testDeleteTask() {
+        //Given
+        Long id = 1L;
+        //When
+        dbService.deleteTask(id);
+        //Then
+        verify(taskRepository, times(1)).delete(id);
     }
 }
