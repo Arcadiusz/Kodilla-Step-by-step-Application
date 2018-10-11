@@ -25,6 +25,8 @@ mavenCentral()
 
 
 dependencies {
+
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.projectlombok:lombok')
 	compile('mysql:mysql-connector-java')
