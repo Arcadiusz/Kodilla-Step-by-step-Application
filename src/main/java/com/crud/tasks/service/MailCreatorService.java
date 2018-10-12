@@ -69,7 +69,7 @@ public class MailCreatorService {
         context.setVariable("is_friend", false);
         context.setVariable("admin_config", adminConfig);
         context.setVariable("tasks_count", taskRepository.count());
-        context.setVariable("application_functionality", reminder);
+        context.setVariable("reminder", reminder);
         return templateEngine.process("mail/scheduled-status-mail", context);
     }
 }
