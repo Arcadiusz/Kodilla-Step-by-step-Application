@@ -11,7 +11,6 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.matches;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -37,6 +36,6 @@ public class EmailSchedulerTestSuite {
         //When
         emailScheduler.sendInformationEmail();
         //Then
-        verify(simpleEmailService, times(1)).send(any(Mail.class));
+        verify(simpleEmailService, times(1)).sendSchedule(any(Mail.class));
     }
 }
